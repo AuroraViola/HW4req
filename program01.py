@@ -58,22 +58,28 @@ def get_words(filename: str) -> list:
             nextfile = wordlisttemp[0]
             wordlist.extend(wordlisttemp[1:])
 
-    return [(word, len(word)) for word in wordlist]
+    return wordlist
 
 def most_frequent_chars(filename: str) -> str:
     wordlist = get_words(filename)
 
-    newword = ""
     lenwordlist = len(wordlist)
-    newwordlen = max(wordlist, key=lambda x: x[1])[1]
+    newwordlen = len(max(wordlist, key=len))
+    newword = ""
     for i in range(newwordlen):
         charcount = {}
-        for j in range(lenwordlist):
-            if wordlist[j][1] >= i+1:
-                charcount[wordlist[j][0][i]] = charcount.get(wordlist[j][0][i], 0) + 1
+        #for j in lenwordlist:
+        j = 0
+        while j < len(wordlist):
+            try:
+                charcount[wordlist[j][i]] = charcount.get(wordlist[j][i], 0) + 1
+                j += 1
+            except IndexError:
+                del wordlist[j]
+                lenwordlist-=1
         newword += min(charcount.items(), key=lambda x: (-x[1],x[0]))[0]
 
     return newword
 
 #print(most_frequent_chars('test01/A.txt'))
-#print(most_frequent_chars('test12/incipience.txt'))
+print(most_frequent_chars('test12/incipience.txt'))
