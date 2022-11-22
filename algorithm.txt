@@ -1,1 +1,15 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+per ottene tutte le parole nei file ho:
+1. messo tutte le parole del filename in una lista
+2. il prossimo file sarà il primo elemento della lista
+3. aggiunti tutti gli elemente della lista (eccetto il primo elemento) ad una lista chiamata wordlist
+4. ripete 1-3 finchè il file successivo non è uguale a filename
+
+Dopo ho calcolato la parola più lunga e ho iterato per questa lunghezza.
+
+dentro questo ciclo ho creato un dizionario charcount e in un altro ciclo che itera per la lunghezza.
+
+mentre esegue questo ciclo prova ad aumentare il contatore della lettera nel dizionario (se la lettera non è presente nel dizionario inizializza il contatore di questa lettera a uno). In caso non riesce a eseguire questa azione l'elemento della lista viene cancellato.
+
+alla fine del primo ciclo (quello lungo quanto la parola più lunga) aggiungo ad una nuova stringa (newstring) l'elemento con il valore più alto nel dizionario che ha la chiave più piccola.
+
+infine ritorna newstring
